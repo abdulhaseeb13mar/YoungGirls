@@ -1,6 +1,6 @@
 export const colors = {
-  primary: '#82bf0d',
-  rgb_Primary: '130,191,13',
+  primary: '#6d02a5',
+  rgb_Primary: '109,2,165',
   secondary: '#331704',
   lightBackground: '#eeeff0',
   lightGrey1: '#d0d0d0',
@@ -12,10 +12,12 @@ export const colors = {
   darkPink: '#866766',
   orange: '#fa6c1c',
   lightBackground2: '#d9e0e3',
+  darkBlue: '#142A4D',
 };
 
 export const textFont = {
   DINAlternate: 'DIN alternate',
   FuturaMedium: 'Futura-Medium',
   GillSans: 'GillSans',
+  TimesNewRoman: 'TimesNewRomanPS-BoldMT',
 };

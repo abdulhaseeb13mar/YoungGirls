@@ -1,23 +1,23 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useState} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import WrapperScreen from '../BbFrequentUsage/BbWrapperScreen';
-import {H_W} from '../BbFrequentUsage/BbResponsive';
-import NavigationRef from '../BbFrequentUsage/BbRefNavigation';
-import {colors} from '../BbFrequentUsage/BbColor';
-import Data from '../BbData';
-import Loop from '../BbFrequentUsage//BbFlatList';
+import WrapperScreen from '../YgFrequentUsage/YgWrapperScreen';
+import {H_W} from '../YgFrequentUsage/YgResponsive';
+import NavigationRef from '../YgFrequentUsage/YgRefNavigation';
+import {colors} from '../YgFrequentUsage/YgColor';
+import Data from '../YgData';
+import Loop from '../YgFrequentUsage/YgFlatList';
 import {connect} from 'react-redux';
 import {
-  BbsetCurrentProductAction,
-  BbsetFavAction,
-  BbremoveFavAction,
-} from '../BbStateManagement/BbActions';
+  YgsetCurrentProductAction,
+  YgsetFavAction,
+  YgremoveFavAction,
+} from '../YgStateManagement/YgActions';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import BbSearchBar from '../BbFrequentUsage/BbSearchBar';
-import BbHeader from '../BbFrequentUsage/BbHeader';
+import YgSearchBar from '../YgFrequentUsage/YgSearchBar';
+import YgHeader from '../YgFrequentUsage/YgHeader';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import {BbVerticalTile} from './BbHome';
+import {YgVerticalTile} from './YgHome';
 
 function Search(props) {
   const [searchText, setSearchText] = useState('');
@@ -38,9 +38,9 @@ function Search(props) {
     );
   };
 
-  const BbGoToSingleProduct = (item) => {
-    props.BbsetCurrentProductAction(item);
-    NavigationRef.Navigate('BbSP');
+  const YgGoToSingleProduct = (item) => {
+    props.YgsetCurrentProductAction(item);
+    NavigationRef.Navigate('YgSP');
   };
 
   const CardRender = (Arr) => {
@@ -55,21 +55,21 @@ function Search(props) {
               justifyContent: 'center',
               paddingVertical: 10,
             }}>
-            <BbVerticalTile
+            <YgVerticalTile
               item={item}
-              BbGoToSingleProduct={BbGoToSingleProduct}
-              BbFavs={props.BbFavs}
-              BbsetFav={(fd) => props.BbsetFavAction(fd)}
-              BbremoveFav={(fd) => props.BbremoveFavAction(fd)}
+              YgGoToSingleProduct={YgGoToSingleProduct}
+              YgFavs={props.YgFavs}
+              YgsetFav={(fd) => props.YgsetFavAction(fd)}
+              YgremoveFav={(fd) => props.YgremoveFavAction(fd)}
             />
           </View>
         )}
       />
     );
   };
-  const BbGoBack = () => NavigationRef.GoBack();
+  const YgGoBack = () => NavigationRef.GoBack();
 
-  const BbchangeSearchText = (t) => setSearchText(t);
+  const YgchangeSearchText = (t) => setSearchText(t);
   return (
     <WrapperScreen style={{backgroundColor: colors.lightBackground}}>
       <View
@@ -83,22 +83,22 @@ function Search(props) {
           bottom: 0,
         }}
       />
-      <View style={styles.BbSearch1}>
-        <BbHeader
+      <View style={styles.YgSearch1}>
+        <YgHeader
           leftIcon={AntDesign}
           leftIconName="arrowleft"
           leftIconColor={colors.primary}
-          leftIconAction={BbGoBack}
-          Title={<Text style={styles.BbSearch2}>Search</Text>}
+          leftIconAction={YgGoBack}
+          Title={<Text style={styles.YgSearch2}>Search</Text>}
         />
-        <View style={styles.BbSearch3}>
+        <View style={styles.YgSearch3}>
           <View
             style={{
               marginTop: HEIGHT * 0.01,
               marginBottom: -HEIGHT * 0.02,
-              ...styles.BbSearch4,
+              ...styles.YgSearch4,
             }}>
-            <BbSearchBar changeSearchText={BbchangeSearchText} />
+            <YgSearchBar changeSearchText={YgchangeSearchText} />
           </View>
         </View>
       </View>
@@ -110,32 +110,32 @@ function Search(props) {
 }
 
 const mapStateToProps = (state) => ({
-  BbFavs: state.BbToggleFav,
+  YgFavs: state.YgToggleFav,
 });
 
 export default connect(mapStateToProps, {
-  BbsetCurrentProductAction,
-  BbsetFavAction,
-  BbremoveFavAction,
+  YgsetCurrentProductAction,
+  YgsetFavAction,
+  YgremoveFavAction,
 })(Search);
 
 const styles = StyleSheet.create({
-  BbSearch1: {
+  YgSearch1: {
     borderBottomLeftRadius: 30,
     borderBottomRightRadius: 30,
   },
-  BbSearch2: {
+  YgSearch2: {
     fontWeight: 'bold',
     fontSize: 20,
     color: colors.primary,
   },
-  BbSearch3: {
+  YgSearch3: {
     alignItems: 'center',
     justifyContent: 'center',
   },
-  BbSearch4: {
+  YgSearch4: {
     width: '85%',
   },
-  BbSearch5: {},
-  BbSearch6: {},
+  YgSearch5: {},
+  YgSearch6: {},
 });

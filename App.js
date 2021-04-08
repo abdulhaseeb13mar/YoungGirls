@@ -9,8 +9,8 @@
 import React from 'react';
 import {RootSiblingParent} from 'react-native-root-siblings';
 import {Provider} from 'react-redux';
-import store from './BbStateManagement/BbStore';
-import Routes from './BbRouting';
+import store from './YgStateManagement/YgStore';
+import Routes from './YgRouting';
 //import RNBootSplash from 'react-native-bootsplash';
 
 const App: () => React$Node = () => {

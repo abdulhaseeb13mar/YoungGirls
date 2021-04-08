@@ -2,18 +2,18 @@
 import React, {useState} from 'react';
 import {Text, View, StyleSheet, TextInput} from 'react-native';
 import {connect} from 'react-redux';
-import WrapperScreen from '../BbFrequentUsage/BbWrapperScreen';
+import WrapperScreen from '../YgFrequentUsage/YgWrapperScreen';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import {H_W} from '../BbFrequentUsage/BbResponsive';
-import {colors} from '../BbFrequentUsage/BbColor';
+import {H_W} from '../YgFrequentUsage/YgResponsive';
+import {colors} from '../YgFrequentUsage/YgColor';
 import {Button, Overlay} from 'react-native-elements';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import {isFormValid} from '../BbFrequentUsage/Bbvalidation';
-import NavPointer from '../BbFrequentUsage/BbRefNavigation';
-import {BbUserAction, BbresetCart} from '../BbStateManagement/BbActions';
+import {isFormValid} from '../YgFrequentUsage/Ygvalidation';
+import NavPointer from '../YgFrequentUsage/YgRefNavigation';
+import {YgUserAction, YgresetCart} from '../YgStateManagement/YgActions';
 import Toast from 'react-native-root-toast';
-import UseHeader from '../BbFrequentUsage/BbHeader';
+import UseHeader from '../YgFrequentUsage/YgHeader';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 const ConfirmOrder = (props) => {
@@ -30,13 +30,13 @@ const ConfirmOrder = (props) => {
   const [addressErrMsg, setAddressErrMsg] = useState('');
   const [phone, setPhone] = useState('');
 
-  const BbConfirm = () => {
+  const YgConfirm = () => {
     const formValidResponse = isFormValid(firstName, email, phone, address);
     if (!formValidResponse.status) {
       errorMsgHandler(formValidResponse.errCategory, formValidResponse.errMsg);
     } else {
       CallApi();
-      props.BbUserAction({
+      props.YgUserAction({
         email: email,
         firstName: firstName,
         phone: phone,
@@ -106,20 +106,20 @@ const ConfirmOrder = (props) => {
   };
 
   // const MoveToConfirmOrder = () => {
-  //   props.BbresetCart();
-  //   NavPointer.Push('BbConfirmOrder');
+  //   props.YgresetCart();
+  //   NavPointer.Push('YgConfirmOrder');
   // };
 
   const closeModal = () => {
     setShowModal(false);
-    props.BbresetCart();
-    NavPointer.Push('BbHome');
+    props.YgresetCart();
+    NavPointer.Push('YgHome');
   };
 
   const changePhone = (t) => setPhone(t);
   const changeAddress = (t) => setAddress(t);
   const changeEmail = (t) => setEmail(t);
-  const BbGoBack = () => NavPointer.GoBack();
+  const YgGoBack = () => NavPointer.GoBack();
   const changeFirstName = (t) => setFirstName(t);
 
   return (
@@ -129,19 +129,19 @@ const ConfirmOrder = (props) => {
           leftIcon={AntDesign}
           leftIconName="arrowleft"
           leftIconColor={colors.primary}
-          leftIconAction={BbGoBack}
-          Title={<Text style={styles.BbContact2}>Information</Text>}
+          leftIconAction={YgGoBack}
+          Title={<Text style={styles.YgContact2}>Information</Text>}
         />
-        <View style={styles.BbPersonalInfoWrapper}>
-          <View style={styles.BbSinglePersonalInfoWrapper}>
+        <View style={styles.YgPersonalInfoWrapper}>
+          <View style={styles.YgSinglePersonalInfoWrapper}>
             <Text
               style={{
-                ...styles.BbPersonalInfoHeadingName,
+                ...styles.YgPersonalInfoHeadingName,
                 color: firstNameErrMsg ? 'red' : 'black',
               }}>
               FULL NAME <Text> {firstNameErrMsg}</Text>
             </Text>
-            <View style={styles.BbPersonalInfoInputWrapper}>
+            <View style={styles.YgPersonalInfoInputWrapper}>
               <TextInput
                 placeholder="Your Name"
                 style={{...styles.Input, height: HEIGHT * 0.065}}
@@ -150,15 +150,15 @@ const ConfirmOrder = (props) => {
               />
             </View>
           </View>
-          <View style={styles.BbSinglePersonalInfoWrapper}>
+          <View style={styles.YgSinglePersonalInfoWrapper}>
             <Text
               style={{
-                ...styles.BbPersonalInfoHeadingName,
+                ...styles.YgPersonalInfoHeadingName,
                 color: emailErrMsg ? 'red' : 'black',
               }}>
               EMAIL<Text> {emailErrMsg}</Text>
             </Text>
-            <View style={styles.BbPersonalInfoInputWrapper}>
+            <View style={styles.YgPersonalInfoInputWrapper}>
               <TextInput
                 placeholder="Email"
                 style={{...styles.Input, height: HEIGHT * 0.065}}
@@ -167,15 +167,15 @@ const ConfirmOrder = (props) => {
               />
             </View>
           </View>
-          <View style={styles.BbSinglePersonalInfoWrapper}>
+          <View style={styles.YgSinglePersonalInfoWrapper}>
             <Text
               style={{
-                ...styles.BbPersonalInfoHeadingName,
+                ...styles.YgPersonalInfoHeadingName,
                 color: phoneErrMsg ? 'red' : 'black',
               }}>
               PHONE NUMBER<Text> {phoneErrMsg}</Text>
             </Text>
-            <View style={styles.BbPersonalInfoInputWrapper}>
+            <View style={styles.YgPersonalInfoInputWrapper}>
               <TextInput
                 placeholder="Phone Number"
                 keyboardType="number-pad"
@@ -185,15 +185,15 @@ const ConfirmOrder = (props) => {
               />
             </View>
           </View>
-          <View style={styles.BbSinglePersonalInfoWrapper}>
+          <View style={styles.YgSinglePersonalInfoWrapper}>
             <Text
               style={{
-                ...styles.BbPersonalInfoHeadingName,
+                ...styles.YgPersonalInfoHeadingName,
                 color: addressErrMsg ? 'red' : 'black',
               }}>
               DELIVERY ADDRESS<Text> {addressErrMsg}</Text>
             </Text>
-            <View style={styles.BbPersonalInfoInputWrapper}>
+            <View style={styles.YgPersonalInfoInputWrapper}>
               <TextInput
                 placeholder="Address"
                 style={{...styles.Input, height: HEIGHT * 0.13}}
@@ -210,7 +210,7 @@ const ConfirmOrder = (props) => {
           animationType="fade">
           <View
             style={{
-              ...styles.BbModalWrapper,
+              ...styles.YgModalWrapper,
               paddingVertical: HEIGHT * 0.04,
             }}>
             <MaterialCommunityIcons
@@ -218,7 +218,7 @@ const ConfirmOrder = (props) => {
               size={H_W.width * 0.25}
               color="white"
             />
-            <Text style={styles.BbModalHeadText}>
+            <Text style={styles.YgModalHeadText}>
               YOUR ORDER HAS BEEN CONFIRMED!
             </Text>
           </View>
@@ -232,8 +232,8 @@ const ConfirmOrder = (props) => {
           <Button
             raised
             loading={loading}
-            onPress={BbConfirm}
-            disabled={props.BbTotalItems === 0}
+            onPress={YgConfirm}
+            disabled={props.YgTotalItems === 0}
             title="CONFIRM ORDER"
             titleStyle={{fontWeight: 'bold', fontSize: 20}}
             containerStyle={{width: '100%', borderRadius: 50}}
@@ -258,26 +258,26 @@ const ConfirmOrder = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    total: state.BbCartReducer.totalAmount,
+    total: state.YgCartReducer.totalAmount,
   };
 };
 
-export default connect(mapStateToProps, {BbUserAction, BbresetCart})(
+export default connect(mapStateToProps, {YgUserAction, YgresetCart})(
   React.memo(ConfirmOrder),
 );
 
 const styles = StyleSheet.create({
-  BbContact2: {
+  YgContact2: {
     color: colors.primary,
     fontSize: 22,
   },
-  BbModalHeadText: {
+  YgModalHeadText: {
     fontSize: H_W.width * 0.06,
     fontWeight: 'bold',
     textAlign: 'center',
     color: 'white',
   },
-  BbModalWrapper: {
+  YgModalWrapper: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -290,14 +290,14 @@ const styles = StyleSheet.create({
     color: colors.primary,
     fontWeight: 'bold',
   },
-  BbInputIcon: {
+  YgInputIcon: {
     display: 'flex',
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
     width: H_W.width * 0.09,
     color: colors.secondary,
   },
-  BbPersonalInfoInputWrapper: {
+  YgPersonalInfoInputWrapper: {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
@@ -308,15 +308,15 @@ const styles = StyleSheet.create({
     borderColor: colors.primary,
     borderWidth: 1.5,
   },
-  BbPersonalInfoHeadingName: {
+  YgPersonalInfoHeadingName: {
     fontSize: 13,
     fontWeight: 'bold',
     marginVertical: 6,
   },
-  BbSinglePersonalInfoWrapper: {
+  YgSinglePersonalInfoWrapper: {
     marginVertical: 10,
   },
-  BbPersonalInfoWrapper: {
+  YgPersonalInfoWrapper: {
     marginHorizontal: H_W.width * 0.035,
   },
   container: {flex: 1},

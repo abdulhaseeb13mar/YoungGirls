@@ -3,26 +3,26 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Text, View, StyleSheet} from 'react-native';
 import {
-  BbremoveFavAction,
-  BbsetFavAction,
-  BbsetCurrentProductAction,
-} from '../BbStateManagement/BbActions';
-import {H_W} from '../BbFrequentUsage/BbResponsive';
-import BbHeader from '../BbFrequentUsage/BbHeader';
-import {colors} from '../BbFrequentUsage/BbColor';
-import WrapperScreen from '../BbFrequentUsage/BbWrapperScreen';
-import Loop from '../BbFrequentUsage//BbFlatList';
+  YgremoveFavAction,
+  YgsetFavAction,
+  YgsetCurrentProductAction,
+} from '../YgStateManagement/YgActions';
+import {H_W} from '../YgFrequentUsage/YgResponsive';
+import YgHeader from '../YgFrequentUsage/YgHeader';
+import {colors} from '../YgFrequentUsage/YgColor';
+import WrapperScreen from '../YgFrequentUsage/YgWrapperScreen';
+import Loop from '../YgFrequentUsage/YgFlatList';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import NavigationRef from '../BbFrequentUsage/BbRefNavigation';
-import {BbVerticalTile} from './BbHome';
+import NavigationRef from '../YgFrequentUsage/YgRefNavigation';
+import {YgVerticalTile} from './YgHome';
 
-const BbFavourites = (props) => {
-  const BbGoToSingleProduct = (item) => {
-    props.BbsetCurrentProductAction(item);
-    NavigationRef.Navigate('BbSP');
+const YgFavourites = (props) => {
+  const YgGoToSingleProduct = (item) => {
+    props.YgsetCurrentProductAction(item);
+    NavigationRef.Navigate('YgSP');
   };
 
-  const BbGoBack = () => NavigationRef.Navigate('BbHome');
+  const YgGoBack = () => NavigationRef.Navigate('YgHome');
 
   return (
     <WrapperScreen style={{backgroundColor: 'white'}}>
@@ -41,7 +41,7 @@ const BbFavourites = (props) => {
       <View style={{flex: 1}}>
         <Loop
           horizontal={false}
-          data={props.BbFavs}
+          data={props.YgFavs}
           renderItem={({item}) => (
             <View
               style={{
@@ -49,23 +49,23 @@ const BbFavourites = (props) => {
                 justifyContent: 'center',
                 paddingVertical: 10,
               }}>
-              <BbVerticalTile
+              <YgVerticalTile
                 item={item}
-                BbGoToSingleProduct={BbGoToSingleProduct}
-                BbFavs={props.BbFavs}
-                BbsetFav={(fd) => props.BbsetFavAction(fd)}
-                BbremoveFav={(fd) => props.BbremoveFavAction(fd)}
+                YgGoToSingleProduct={YgGoToSingleProduct}
+                YgFavs={props.YgFavs}
+                YgsetFav={(fd) => props.YgsetFavAction(fd)}
+                YgremoveFav={(fd) => props.YgremoveFavAction(fd)}
               />
             </View>
           )}
           ListHeaderComponent={
-            <BbHeader
+            <YgHeader
               leftIcon={AntDesign}
               leftIconName="arrowleft"
-              leftIconAction={BbGoBack}
+              leftIconAction={YgGoBack}
               Title={
-                <Text style={styles.BbFav2}>
-                  {props.BbFavs.length} Favourites
+                <Text style={styles.YgFav2}>
+                  {props.YgFavs.length} Favourites
                 </Text>
               }
             />
@@ -78,26 +78,26 @@ const BbFavourites = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    BbFavs: state.BbToggleFav,
+    YgFavs: state.YgToggleFav,
   };
 };
 
 export default connect(mapStateToProps, {
-  BbsetFavAction,
-  BbsetCurrentProductAction,
-  BbremoveFavAction,
-})(BbFavourites);
+  YgsetFavAction,
+  YgsetCurrentProductAction,
+  YgremoveFavAction,
+})(YgFavourites);
 
 const styles = StyleSheet.create({
-  BbFav1: {
+  YgFav1: {
     backgroundColor: colors.primary,
     borderBottomLeftRadius: 30,
     borderBottomRightRadius: 30,
   },
-  BbFav2: {
+  YgFav2: {
     color: colors.primary,
     fontSize: 22,
   },
-  BbFav3: {},
-  BbFav4: {},
+  YgFav3: {},
+  YgFav4: {},
 });

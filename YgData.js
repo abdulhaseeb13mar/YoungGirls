@@ -30,7 +30,7 @@ export default {
       id: '1',
       categoryid: '1',
       product: 'Nike Elemental',
-      image: require('./BbAllAssets/Images/1.png'),
+      image: require('./YgAllAssets/Images/1.png'),
       dis:
         'Its durable design features 2 zippered compartments to keep your stuff secure. Padded shoulder straps are adjustable for comfort and the fit you want.',
       added: 0,
@@ -42,7 +42,7 @@ export default {
       id: '2',
       categoryid: '1',
       product: 'Nike Future Pro',
-      image: require('./BbAllAssets/Images/2.png'),
+      image: require('./YgAllAssets/Images/2.png'),
       dis:
         'A spacious interior and multiple pockets outside keep your stuff secure.',
       added: 0,
@@ -54,7 +54,7 @@ export default {
       id: '3',
       categoryid: '1',
       product: 'Nike Brasilia Varsity',
-      image: require('./BbAllAssets/Images/3.png'),
+      image: require('./YgAllAssets/Images/3.png'),
       dis:
         'It includes a laptop sleeve, multiple zippered compartments, pockets and a drink pouch on the side.',
       added: 0,
@@ -66,7 +66,7 @@ export default {
       id: '4',
       categoryid: '1',
       product: 'Nike Just Do It',
-      image: require('./BbAllAssets/Images/4.png'),
+      image: require('./YgAllAssets/Images/4.png'),
       dis:
         'The Nike Just Do It Backpack (Mini) features a main compartment and padded shoulder straps for ample storage and comfortable carrying.',
       added: 0,
@@ -78,7 +78,7 @@ export default {
       id: '5',
       categoryid: '1',
       product: 'Nike Hayward 2.0',
-      image: require('./BbAllAssets/Images/5.png'),
+      image: require('./YgAllAssets/Images/5.png'),
       dis:
         'The Nike Hayward 2.0 Backpack combines simplicity and functionality with its sleek design and easy-to-access compartments.',
       added: 0,
@@ -90,7 +90,7 @@ export default {
       id: '6',
       categoryid: '2',
       product: 'adidas MODERN BACKPACK',
-      image: require('./BbAllAssets/Images/6.png'),
+      image: require('./YgAllAssets/Images/6.png'),
       dis: 'CONTEMPORARY BACKPACK GIVES THE GREEN LIGHT FOR HIGH-TECH TRAVELS.',
       added: 0,
       bgcolor: '#E5D8AF',
@@ -101,7 +101,7 @@ export default {
       id: '7',
       categoryid: '2',
       product: 'adidas NATIONAL 3-STRIPES BACKPACK',
-      image: require('./BbAllAssets/Images/7.png'),
+      image: require('./YgAllAssets/Images/7.png'),
       dis:
         'AN EVERYDAY BACKPACK WITH SPORTY ADIDAS BRANDING AND CLASSIC CAMOUFLAGE.',
       added: 0,
@@ -113,7 +113,7 @@ export default {
       id: '8',
       categoryid: '2',
       product: 'adidas ADICOLOR CLASSIC BACKPACK',
-      image: require('./BbAllAssets/Images/8.png'),
+      image: require('./YgAllAssets/Images/8.png'),
       dis: 'A SIMPLE BACKPACK TO CARRY EVERYDAY ESSENTIALS.',
       added: 0,
       bgcolor: '#ECECEC',
@@ -124,7 +124,7 @@ export default {
       id: '9',
       categoryid: '2',
       product: 'adidas LEAGUE 3-STRIPES BACKPACK',
-      image: require('./BbAllAssets/Images/9.png'),
+      image: require('./YgAllAssets/Images/9.png'),
       dis: 'A STURDY BACKPACK FOR EVERYDAY WEAR.',
       added: 0,
       bgcolor: '#D1CFCE',
@@ -135,7 +135,7 @@ export default {
       id: '10',
       categoryid: '2',
       product: 'adidas NATIONAL FESTIVAL CROSSBODY BAG',
-      image: require('./BbAllAssets/Images/10.png'),
+      image: require('./YgAllAssets/Images/10.png'),
       dis: 'THE DESIGNATED CROSSBODY BAG FOR ALL YOUR ACTIVITIES.',
       added: 0,
       bgcolor: '#FFC78E',
@@ -146,7 +146,7 @@ export default {
       id: '11',
       categoryid: '3',
       product: 'Black Nylon Backpack With Logo',
-      image: require('./BbAllAssets/Images/11.png'),
+      image: require('./YgAllAssets/Images/11.png'),
       dis:
         'Adjustable shoulder straps. Zip closure. Front logo. Outer zip pocket. Inner zip pocket. Front logo. Dimensions: 42 cm x 36 cm x 12 cm. 100% polyester. Color: black',
       added: 0,
@@ -158,7 +158,7 @@ export default {
       id: '12',
       categoryid: '3',
       product: 'Blue Malmö Mini Backpack',
-      image: require('./BbAllAssets/Images/12.png'),
+      image: require('./YgAllAssets/Images/12.png'),
       dis:
         'Height: 34cm Width: 26cm Depth: 11cm. Double adjustable shoulder straps. Single top handle. Zip closure. Front logo detail. One front zip pocket. Internal patch pockets. Color: blue',
       added: 0,
@@ -170,7 +170,7 @@ export default {
       id: '13',
       categoryid: '3',
       product: 'Green Verdon Dusty Olive / White Backpack',
-      image: require('./BbAllAssets/Images/13.png'),
+      image: require('./YgAllAssets/Images/13.png'),
       dis:
         'The Verdon backpack comes with a frontal logo print in a contrasting color. Other features include padded back panel, a top handle and zip closure for both front and main pockets. Adjustable padded shoulder straps - 100% polyester. Color: green',
       added: 0,
@@ -182,7 +182,7 @@ export default {
       id: '14',
       categoryid: '3',
       product: 'Black Logo Backpack',
-      image: require('./BbAllAssets/Images/14.png'),
+      image: require('./YgAllAssets/Images/14.png'),
       dis:
         'Dimensions: Width: 36cm, Height: 42cm, Depth: 12cm 100% Polyester. Made in Vietnam. Color: black',
       added: 0,
@@ -194,7 +194,7 @@ export default {
       id: '15',
       categoryid: '3',
       product: 'Chest Bag With Logo Unisex Black',
-      image: require('./BbAllAssets/Images/15.png'),
+      image: require('./YgAllAssets/Images/15.png'),
       dis:
         'Black chest bag from Fila. Zip fastening. Zip pocket and logo print on the front. Trimmed with textured fabric. Adjustable shoulder straps. One compartment inside. Color: black',
       added: 0,
@@ -206,7 +206,7 @@ export default {
       id: '16',
       categoryid: '4',
       product: 'Louis Vuitton x Supreme Christopher Backpack',
-      image: require('./BbAllAssets/Images/16.png'),
+      image: require('./YgAllAssets/Images/16.png'),
       dis:
         'The Louis Vuitton x Supreme Christopher backpack in red is a structured bag dripping in style. It comes with adjustable leather shoulder straps, a leather top handle, flap opening, press stud and drawstring closure as well as several pockets inside.',
       added: 0,
@@ -218,7 +218,7 @@ export default {
       id: '17',
       categoryid: '4',
       product: 'Supreme Backpack Backpack (FW20) Dark Red',
-      image: require('./BbAllAssets/Images/17.png'),
+      image: require('./YgAllAssets/Images/17.png'),
       dis: 'STYLE: SUP-BADRD, SEASON: FW20, COLOR: DARK RED.',
       added: 0,
       bgcolor: '#FFB3B3',
@@ -229,7 +229,7 @@ export default {
       id: '18',
       categoryid: '4',
       product: 'Supreme Backpack (SS20) Blue Chocolate Chip Camo',
-      image: require('./BbAllAssets/Images/18.png'),
+      image: require('./YgAllAssets/Images/18.png'),
       dis:
         'The SS20 Backpack was released in four colors and features Cordura fabric, PVC coated meshing, and a 3M reflective Supreme Logo.',
       added: 0,
@@ -241,7 +241,7 @@ export default {
       id: '19',
       categoryid: '4',
       product: 'Supreme Backpack (FW20) Leopard',
-      image: require('./BbAllAssets/Images/19.png'),
+      image: require('./YgAllAssets/Images/19.png'),
       dis:
         "This Leopard print Backpack released as a part of the Supreme's Fall/Winter 2020 Week 1 drop alongside three other backpack colorways.",
       added: 0,
@@ -253,7 +253,7 @@ export default {
       id: '20',
       categoryid: '4',
       product: 'Supreme 3M Reflective Repeat Backpack Black',
-      image: require('./BbAllAssets/Images/20.png'),
+      image: require('./YgAllAssets/Images/20.png'),
       dis:
         'Supreme 3M Reflective Repeat Backpack Color: Red Material: Parachute',
       added: 0,
@@ -265,7 +265,7 @@ export default {
       id: '21',
       categoryid: '5',
       product: "Champion Men's Top Load Backpack",
-      image: require('./BbAllAssets/Images/21.png'),
+      image: require('./YgAllAssets/Images/21.png'),
       dis: '82% Polyester/10% Nylon/8% Spandex; 2nd: 100% Polyester',
       added: 0,
       bgcolor: '#E4E4E4',
@@ -276,7 +276,7 @@ export default {
       id: '22',
       categoryid: '5',
       product: "Champion Men's Manuscript Backpack, green, One size",
-      image: require('./BbAllAssets/Images/22.png'),
+      image: require('./YgAllAssets/Images/22.png'),
       dis:
         'Large main compartment and internal flat zip pocket, Two internal flat zip pocket and two internal stretch mesh pockets',
       added: 0,
@@ -288,7 +288,7 @@ export default {
       id: '23',
       categoryid: '5',
       product: "Champion Kids' Youth Supercize Backpack",
-      image: require('./BbAllAssets/Images/23.png'),
+      image: require('./YgAllAssets/Images/23.png'),
       dis:
         'One main compartment and interior padded laptop sleeve, Padded strap, back and bottom panels',
       added: 0,
@@ -300,7 +300,7 @@ export default {
       id: '24',
       categoryid: '5',
       product: 'Champion Franchise Backpack, Grey, One Size',
-      image: require('./BbAllAssets/Images/24.png'),
+      image: require('./YgAllAssets/Images/24.png'),
       dis:
         'One large main compartment with slip laptop sleeve, Front zip pocket with internal organizer.',
       added: 0,
@@ -312,7 +312,7 @@ export default {
       id: '25',
       categoryid: '5',
       product: "Champion Men's Supercize Backpack",
-      image: require('./BbAllAssets/Images/25.png'),
+      image: require('./YgAllAssets/Images/25.png'),
       dis:
         'One main compartment with a laptop compartment, Two exterior orangizer pocket and carry handle',
       added: 0,
@@ -324,7 +324,7 @@ export default {
       id: '26',
       categoryid: '6',
       product: 'Under Armour Hustle Backpack',
-      image: require('./BbAllAssets/Images/26.png'),
+      image: require('./YgAllAssets/Images/26.png'),
       dis:
         'Soft-lined laptop sleeve—holds up to 15" MacBook Pro or similarly sized laptop, Water-repellent front valuables pocket to keep your stuff safe.',
       added: 0,
@@ -336,7 +336,7 @@ export default {
       id: '27',
       categoryid: '6',
       product: 'Under Armour Adult Hustle 4.0 Backpack',
-      image: require('./BbAllAssets/Images/27.png'),
+      image: require('./YgAllAssets/Images/27.png'),
       dis:
         'WATER-RESISTANT & DURABLE: UA Storm technology delivers an element-battling, highly water-resistant finish to keep your stuff dry. Tough, abrasion-resistant bottom panel.',
       added: 0,
@@ -348,7 +348,7 @@ export default {
       id: '28',
       categoryid: '6',
       product: 'Under Armour Adult Loudon Backpack',
-      image: require('./BbAllAssets/Images/28.png'),
+      image: require('./YgAllAssets/Images/28.png'),
       dis: 'UA Storm technology repels water without sacrificing breathability',
       added: 0,
       bgcolor: '#EEE0C0',
@@ -359,7 +359,7 @@ export default {
       id: '29',
       categoryid: '6',
       product: "Under Armour Men's Yard Baseball Backpack",
-      image: require('./BbAllAssets/Images/29.png'),
+      image: require('./YgAllAssets/Images/29.png'),
       dis:
         'Foam padded back panel for enhanced comfort & breathability, 100% Polyester, Machine Wash',
       added: 0,
@@ -371,7 +371,7 @@ export default {
       id: '30',
       categoryid: '6',
       product: 'Under Armour Halftime Backpack',
-      image: require('./BbAllAssets/Images/30.png'),
+      image: require('./YgAllAssets/Images/30.png'),
       dis:
         'Padded back panel & adjustable, ergonomically shaped straps for more comfortable carry',
       added: 0,
@@ -385,7 +385,7 @@ export default {
       id: '1',
       categoryid: '1',
       product: 'Nike Elemental',
-      image: require('./BbAllAssets/Images/1.png'),
+      image: require('./YgAllAssets/Images/1.png'),
       dis:
         'Its durable design features 2 zippered compartments to keep your stuff secure. Padded shoulder straps are adjustable for comfort and the fit you want.',
       added: 0,
@@ -397,7 +397,7 @@ export default {
       id: '5',
       categoryid: '1',
       product: 'Nike Hayward 2.0',
-      image: require('./BbAllAssets/Images/5.png'),
+      image: require('./YgAllAssets/Images/5.png'),
       dis:
         'The Nike Hayward 2.0 Backpack combines simplicity and functionality with its sleek design and easy-to-access compartments.',
       added: 0,
@@ -409,7 +409,7 @@ export default {
       id: '7',
       categoryid: '2',
       product: 'adidas NATIONAL 3-STRIPES BACKPACK',
-      image: require('./BbAllAssets/Images/7.png'),
+      image: require('./YgAllAssets/Images/7.png'),
       dis:
         'AN EVERYDAY BACKPACK WITH SPORTY ADIDAS BRANDING AND CLASSIC CAMOUFLAGE.',
       added: 0,
@@ -421,7 +421,7 @@ export default {
       id: '27',
       categoryid: '6',
       product: 'Under Armour Adult Hustle 4.0 Backpack',
-      image: require('./BbAllAssets/Images/27.png'),
+      image: require('./YgAllAssets/Images/27.png'),
       dis:
         'WATER-RESISTANT & DURABLE: UA Storm technology delivers an element-battling, highly water-resistant finish to keep your stuff dry. Tough, abrasion-resistant bottom panel.',
       added: 0,
@@ -433,7 +433,7 @@ export default {
       id: '23',
       categoryid: '5',
       product: "Champion Kids' Youth Supercize Backpack",
-      image: require('./BbAllAssets/Images/23.png'),
+      image: require('./YgAllAssets/Images/23.png'),
       dis:
         'One main compartment and interior padded laptop sleeve, Padded strap, back and bottom panels',
       added: 0,
@@ -445,7 +445,7 @@ export default {
       id: '21',
       categoryid: '5',
       product: "Champion Men's Top Load Backpack",
-      image: require('./BbAllAssets/Images/21.png'),
+      image: require('./YgAllAssets/Images/21.png'),
       dis: '82% Polyester/10% Nylon/8% Spandex; 2nd: 100% Polyester',
       added: 0,
       bgcolor: '#E4E4E4',

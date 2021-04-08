@@ -1,11 +1,11 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useState, useEffect} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
-import {H_W} from '../BbFrequentUsage/BbResponsive';
-import WrapperScreen from '../BbFrequentUsage/BbWrapperScreen';
+import {H_W} from '../YgFrequentUsage/YgResponsive';
+import WrapperScreen from '../YgFrequentUsage/YgWrapperScreen';
 import {connect} from 'react-redux';
-import {colors} from '../BbFrequentUsage/BbColor';
-import NavigationRef from '../BbFrequentUsage/BbRefNavigation';
+import {colors} from '../YgFrequentUsage/YgColor';
+import NavigationRef from '../YgFrequentUsage/YgRefNavigation';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {Button} from 'react-native-elements';
@@ -13,11 +13,11 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {
-  BbremoveFavAction,
-  BbsetFavAction,
-  BbaddCartAction,
-  BbremoveCartAction,
-} from '../BbStateManagement/BbActions';
+  YgremoveFavAction,
+  YgsetFavAction,
+  YgaddCartAction,
+  YgremoveCartAction,
+} from '../YgStateManagement/YgActions';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import FastImage from 'react-native-fast-image';
 import StarRating from '../starRating';
@@ -27,14 +27,14 @@ function SingleProduct(props) {
   useEffect(() => {
     checkIfFav();
   }, []);
-  const BbProduct = props.BbProduct;
+  const YgProduct = props.YgProduct;
   const [fav, setFav] = useState(false);
   const insets = useSafeAreaInsets();
   const HEIGHT = H_W.height - (insets.bottom + insets.top);
 
   const checkIfFav = () => {
-    for (let Bb = 0; Bb < props.BbFavs.length; Bb++) {
-      if (props.BbFavs[Bb].id === BbProduct.id) {
+    for (let Yg = 0; Yg < props.YgFavs.length; Yg++) {
+      if (props.YgFavs[Yg].id === YgProduct.id) {
         setFav(true);
         break;
       }
@@ -43,27 +43,27 @@ function SingleProduct(props) {
 
   const toggleFav = () => {
     fav
-      ? props.BbremoveFavAction(BbProduct.id)
-      : props.BbsetFavAction(BbProduct);
+      ? props.YgremoveFavAction(YgProduct.id)
+      : props.YgsetFavAction(YgProduct);
     setFav(!fav);
   };
 
-  const BbAddToCart = () => {
-    props.BbaddCartAction({...BbProduct});
+  const YgAddToCart = () => {
+    props.YgaddCartAction({...YgProduct});
   };
 
-  const BbRemoveFromCart = () => {
-    props.BbCart[BbProduct.id] !== undefined &&
-      props.BbremoveCartAction(BbProduct);
+  const YgRemoveFromCart = () => {
+    props.YgCart[YgProduct.id] !== undefined &&
+      props.YgremoveCartAction(YgProduct);
   };
 
-  const BbGotoCart = () => NavigationRef.Navigate('BbCart');
-  const BbGoBack = () => NavigationRef.GoBack();
+  const YgGotoCart = () => NavigationRef.Navigate('YgCart');
+  const YgGoBack = () => NavigationRef.GoBack();
 
   return (
     <WrapperScreen
-      style={{backgroundColor: BbProduct.bgcolor}}
-      statusBar={BbProduct.bgcolor}>
+      style={{backgroundColor: YgProduct.bgcolor}}
+      statusBar={YgProduct.bgcolor}>
       <KeyboardAwareScrollView bounces={false}>
         <View style={{alignItems: 'center', justifyContent: 'center'}}>
           <View
@@ -75,10 +75,10 @@ function SingleProduct(props) {
               paddingHorizontal: H_W.width * 0.04,
               marginTop: HEIGHT * 0.03,
             }}>
-            <TouchableOpacity onPress={BbGoBack}>
+            <TouchableOpacity onPress={YgGoBack}>
               <AntDesign name="arrowleft" size={23} />
             </TouchableOpacity>
-            <TouchableOpacity onPress={BbGotoCart}>
+            <TouchableOpacity onPress={YgGotoCart}>
               <MaterialCommunityIcons name="cart-outline" size={23} />
               {props.totalItems > 0 && (
                 <Badge
@@ -92,7 +92,7 @@ function SingleProduct(props) {
             </TouchableOpacity>
           </View>
           <FastImage
-            source={BbProduct.image}
+            source={YgProduct.image}
             style={{
               width: H_W.width * 0.8,
               height: HEIGHT * 0.6,
@@ -135,7 +135,7 @@ function SingleProduct(props) {
               fontWeight: 'bold',
               fontSize: 23,
             }}>
-            {BbProduct.product}
+            {YgProduct.product}
           </Text>
           <View
             style={{
@@ -153,11 +153,11 @@ function SingleProduct(props) {
                   color: colors.lightBackground2,
                   marginLeft: H_W.width * 0.04,
                 }}>
-                {BbProduct.rating}
+                {YgProduct.rating}
               </Text>
             </View>
             <Text style={{fontWeight: 'bold', fontSize: 19}}>
-              ${BbProduct.price}
+              ${YgProduct.price}
             </Text>
           </View>
           <Text
@@ -166,7 +166,7 @@ function SingleProduct(props) {
               lineHeight: HEIGHT * 0.03,
               marginTop: HEIGHT * 0.02,
             }}>
-            {BbProduct.dis}
+            {YgProduct.dis}
           </Text>
           <View
             style={{
@@ -192,7 +192,7 @@ function SingleProduct(props) {
                 width: '35%',
               }}>
               <TouchableOpacity
-                onPress={BbRemoveFromCart}
+                onPress={YgRemoveFromCart}
                 style={{
                   padding: 6,
                   backgroundColor: colors.lightBackground,
@@ -207,13 +207,13 @@ function SingleProduct(props) {
                   borderRadius: 5,
                 }}>
                 <Text style={{fontWeight: 'bold', color: colors.darkGray}}>
-                  {props.BbCart[BbProduct.id] === undefined
+                  {props.YgCart[YgProduct.id] === undefined
                     ? 0
-                    : props.BbCart[BbProduct.id].added}
+                    : props.YgCart[YgProduct.id].added}
                 </Text>
               </View>
               <TouchableOpacity
-                onPress={BbAddToCart}
+                onPress={YgAddToCart}
                 style={{
                   padding: 6,
                   backgroundColor: colors.lightBackground,
@@ -224,7 +224,7 @@ function SingleProduct(props) {
             </View>
           </View>
           <Button
-            onPress={BbAddToCart}
+            onPress={YgAddToCart}
             title="Add To My Cart"
             buttonStyle={{
               backgroundColor: colors.primary,
@@ -253,16 +253,16 @@ function SingleProduct(props) {
 
 const mapStateToProps = (state) => {
   return {
-    BbProduct: state.BbCrntPrdtReducer,
-    BbFavs: state.BbToggleFav,
-    totalItems: state.BbCartReducer.totalItems,
-    BbCart: state.BbCartReducer.items,
+    YgProduct: state.YgCrntPrdtReducer,
+    YgFavs: state.YgToggleFav,
+    totalItems: state.YgCartReducer.totalItems,
+    YgCart: state.YgCartReducer.items,
   };
 };
 
 export default connect(mapStateToProps, {
-  BbsetFavAction,
-  BbremoveFavAction,
-  BbremoveCartAction,
-  BbaddCartAction,
+  YgsetFavAction,
+  YgremoveFavAction,
+  YgremoveCartAction,
+  YgaddCartAction,
 })(React.memo(SingleProduct));

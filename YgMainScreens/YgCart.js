@@ -3,25 +3,25 @@ import React, {useState, useEffect} from 'react';
 import {View, Text, ImageBackground, TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux';
 import {
-  BbremoveCartAction,
-  BbaddCartAction,
-  BbsetCurrentProductAction,
-  BbsetFavAction,
-  BbremoveFavAction,
-  BbresetCart,
-} from '../BbStateManagement/BbActions';
-import WrapperScreen from '../BbFrequentUsage/BbWrapperScreen';
+  YgremoveCartAction,
+  YgaddCartAction,
+  YgsetCurrentProductAction,
+  YgsetFavAction,
+  YgremoveFavAction,
+  YgresetCart,
+} from '../YgStateManagement/YgActions';
+import WrapperScreen from '../YgFrequentUsage/YgWrapperScreen';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {colors} from '../BbFrequentUsage/BbColor';
-import {H_W} from '../BbFrequentUsage/BbResponsive';
-import RefNavigation from '../BbFrequentUsage/BbRefNavigation';
+import {colors} from '../YgFrequentUsage/YgColor';
+import {H_W} from '../YgFrequentUsage/YgResponsive';
+import RefNavigation from '../YgFrequentUsage/YgRefNavigation';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {Button} from 'react-native-elements';
-import Loop from '../BbFrequentUsage//BbFlatList';
-import BbHeader from '../BbFrequentUsage/BbHeader';
+import Loop from '../YgFrequentUsage/YgFlatList';
+import YgHeader from '../YgFrequentUsage/YgHeader';
 
 export const Cart = (props) => {
   useEffect(() => {
@@ -31,10 +31,10 @@ export const Cart = (props) => {
   const [HorizontalCartArray, setHorizontalCartArray] = useState([]);
 
   const convertObjectToArray = () => {
-    const CartArray = Object.keys(props.BbCart);
+    const CartArray = Object.keys(props.YgCart);
     let UsArr = [];
     CartArray.forEach((element) => {
-      UsArr.push(props.BbCart[element]);
+      UsArr.push(props.YgCart[element]);
     });
     setHorizontalCartArray(UsArr);
   };
@@ -42,21 +42,21 @@ export const Cart = (props) => {
   const insets = useSafeAreaInsets();
   const HEIGHT = H_W.height - (insets.bottom + insets.top);
 
-  const BbGoBack = () => RefNavigation.GoBack();
+  const YgGoBack = () => RefNavigation.GoBack();
 
-  const BbAddToCart = (item) => {
-    props.BbaddCartAction({...item});
+  const YgAddToCart = (item) => {
+    props.YgaddCartAction({...item});
   };
 
-  const BbRemoveFromCart = (item) => {
-    props.BbCart[item.id] !== undefined && props.BbremoveCartAction(item);
+  const YgRemoveFromCart = (item) => {
+    props.YgCart[item.id] !== undefined && props.YgremoveCartAction(item);
   };
 
-  const BbGoToSingleProduct = (item) => {
-    props.BbsetCurrentProductAction(item);
-    RefNavigation.Navigate('BbSP');
+  const YgGoToSingleProduct = (item) => {
+    props.YgsetCurrentProductAction(item);
+    RefNavigation.Navigate('YgSP');
   };
-  const BbinfoScreen = () => RefNavigation.Navigate('BbContact');
+  const YginfoScreen = () => RefNavigation.Navigate('YgContact');
 
   return (
     <WrapperScreen style={{backgroundColor: 'white'}}>
@@ -72,14 +72,14 @@ export const Cart = (props) => {
           right: 0,
         }}
       />
-      <BbHeader
+      <YgHeader
         leftIcon={AntDesign}
         leftIconName="arrowleft"
         leftIconColor={colors.primary}
-        leftIconAction={BbGoBack}
+        leftIconAction={YgGoBack}
         rightIcon={MaterialIcons}
         rightIconName="delete-outline"
-        rightIconAction={() => props.BbresetCart()}
+        rightIconAction={() => props.YgresetCart()}
         Title=""
       />
       <View
@@ -107,7 +107,7 @@ export const Cart = (props) => {
         data={HorizontalCartArray}
         renderItem={({item}) => (
           <TouchableOpacity
-            onPress={() => BbGoToSingleProduct(item)}
+            onPress={() => YgGoToSingleProduct(item)}
             style={{
               width: H_W.width,
               flexDirection: 'row',
@@ -164,7 +164,7 @@ export const Cart = (props) => {
                 marginLeft: H_W.width * 0.03,
               }}>
               <TouchableOpacity
-                onPress={() => BbRemoveFromCart(item)}
+                onPress={() => YgRemoveFromCart(item)}
                 style={{
                   padding: 4,
                   backgroundColor: colors.lightBackground,
@@ -202,7 +202,7 @@ export const Cart = (props) => {
                 </Text>
               </View>
               <TouchableOpacity
-                onPress={() => BbAddToCart(item)}
+                onPress={() => YgAddToCart(item)}
                 style={{
                   padding: 4,
                   backgroundColor: colors.lightBackground,
@@ -236,15 +236,15 @@ export const Cart = (props) => {
               fontWeight: 'bold',
               color: colors.lightGrey3,
             }}>
-            {props.BbTotalItems} items
+            {props.YgTotalItems} items
           </Text>
           <Text style={{fontSize: 18, fontWeight: 'bold'}}>
-            ${props.BbTotal}
+            ${props.YgTotal}
           </Text>
         </View>
         <Button
-          onPress={BbinfoScreen}
-          disabled={props.BbTotalItems === 0}
+          onPress={YginfoScreen}
+          disabled={props.YgTotalItems === 0}
           title="Add To My Cart"
           buttonStyle={{
             backgroundColor: colors.primary,
@@ -270,17 +270,17 @@ export const Cart = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  BbCart: state.BbCartReducer.items,
-  BbTotal: state.BbCartReducer.totalAmount,
-  BbFavs: state.BbToggleFav,
-  BbTotalItems: state.BbCartReducer.totalItems,
+  YgCart: state.YgCartReducer.items,
+  YgTotal: state.YgCartReducer.totalAmount,
+  YgFavs: state.YgToggleFav,
+  YgTotalItems: state.YgCartReducer.totalItems,
 });
 
 export default connect(mapStateToProps, {
-  BbremoveCartAction,
-  BbaddCartAction,
-  BbsetCurrentProductAction,
-  BbsetFavAction,
-  BbremoveFavAction,
-  BbresetCart,
+  YgremoveCartAction,
+  YgaddCartAction,
+  YgsetCurrentProductAction,
+  YgsetFavAction,
+  YgremoveFavAction,
+  YgresetCart,
 })(Cart);

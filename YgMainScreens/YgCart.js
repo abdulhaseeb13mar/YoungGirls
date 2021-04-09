@@ -15,18 +15,16 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {colors} from '../YgFrequentUsage/YgColor';
 import {H_W} from '../YgFrequentUsage/YgResponsive';
 import RefNavigation from '../YgFrequentUsage/YgRefNavigation';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import AntDesign from 'react-native-vector-icons/AntDesign';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {Button} from 'react-native-elements';
+import Fontisto from 'react-native-vector-icons/Fontisto';
 import Loop from '../YgFrequentUsage/YgFlatList';
 import YgHeader from '../YgFrequentUsage/YgHeader';
 
 export const Cart = (props) => {
   useEffect(() => {
     convertObjectToArray();
-  }, []);
+  }, [props.YgCart]);
 
   const [HorizontalCartArray, setHorizontalCartArray] = useState([]);
 
@@ -59,48 +57,29 @@ export const Cart = (props) => {
   const YginfoScreen = () => RefNavigation.Navigate('YgContact');
 
   return (
-    <WrapperScreen style={{backgroundColor: 'white'}}>
+    <WrapperScreen
+      style={{backgroundColor: 'white'}}
+      statusColor={`rgba(${colors.rgb_Primary},0.2)`}>
       <View
         style={{
           width: 100,
           height: 100,
-          borderRadius: 50,
-          backgroundColor: 'rgba(188,188,188,0.15)',
+          borderRadius: 30,
+          backgroundColor: `rgba(${colors.rgb_Primary},0.02)`,
           transform: [{scaleX: H_W.width * 0.016}, {scaleY: H_W.width * 0.017}],
           position: 'absolute',
-          top: 0,
+          bottom: 0,
           right: 0,
         }}
       />
-      <YgHeader
-        leftIcon={AntDesign}
-        leftIconName="arrowleft"
-        leftIconColor={colors.primary}
-        leftIconAction={YgGoBack}
-        rightIcon={MaterialIcons}
-        rightIconName="delete-outline"
-        rightIconAction={() => props.YgresetCart()}
-        Title=""
-      />
-      <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          marginHorizontal: H_W.width * 0.06,
-          marginBottom: HEIGHT * 0.02,
-          marginTop: HEIGHT * 0.02,
-        }}>
-        <View>
-          <Text style={{fontSize: 24}}>Shopping</Text>
-          <Text
-            style={{
-              fontWeight: 'bold',
-              fontSize: 24,
-            }}>
-            Cart
-          </Text>
-        </View>
+      <View style={{backgroundColor: `rgba(${colors.rgb_Primary},0.2)`}}>
+        <YgHeader
+          leftIcon={Fontisto}
+          leftIconName="arrow-left-l"
+          leftIconColor={colors.primary}
+          leftIconAction={YgGoBack}
+          Title={<Text style={{fontSize: 19}}>Shopping Bag</Text>}
+        />
       </View>
       <Loop
         horizontal={false}
@@ -111,112 +90,115 @@ export const Cart = (props) => {
             style={{
               width: H_W.width,
               flexDirection: 'row',
-              alignItems: 'flex-end',
-              justifyContent: 'flex-start',
-              marginBottom: HEIGHT * 0.02,
+              justifyContent: 'space-evenly',
+              marginVertical: HEIGHT * 0.02,
             }}>
             <ImageBackground
-              source={item.image}
+              source={item.images}
               style={{
                 width: H_W.width * 0.38,
                 height: HEIGHT * 0.18,
+                backgroundColor: colors.lightBackground2,
+                borderRadius: 15,
+                shadowColor: '#000',
+                shadowOffset: {
+                  width: 0,
+                  height: 5,
+                },
+                shadowOpacity: 0.34,
+                shadowRadius: 6.27,
               }}
-              imageStyle={{marginLeft: H_W.width * 0.045}}
-              resizeMode="contain">
-              <View
-                style={{
-                  height: HEIGHT * 0.125,
-                  position: 'absolute',
-                  bottom: 0,
-                  zIndex: -1,
-                  width: '100%',
-                  backgroundColor: item.bgcolor,
-                  borderTopRightRadius: 50,
-                  borderBottomRightRadius: 50,
-                  shadowColor: '#000',
-                  shadowOffset: {
-                    width: 0,
-                    height: 1,
-                  },
-                  shadowOpacity: 0.22,
-                  shadowRadius: 2.2,
-                }}
-              />
-            </ImageBackground>
+              resizeMode="contain"
+            />
             <View
               style={{
-                marginLeft: H_W.width * 0.045,
-                height: HEIGHT * 0.125,
-                width: H_W.width * 0.42,
+                width: H_W.width * 0.5,
+                justifyContent: 'space-between',
               }}>
-              <Text numberOfLines={2} style={{fontSize: 16.5}}>
-                {item.product}
+              <Text
+                numberOfLines={2}
+                style={{fontSize: 18.5, fontFamily: 'Avenir-Roman'}}>
+                {item.productname}
               </Text>
-              <Text style={{fontWeight: 'bold', fontSize: 16}}>
+              <Text
+                style={{
+                  fontSize: 16,
+                  color: colors.darkGray,
+                  marginTop: HEIGHT * 0.005,
+                }}>
+                {item.weight}
+              </Text>
+              <Text
+                style={{
+                  fontWeight: 'bold',
+                  fontSize: 16,
+                  marginTop: HEIGHT * 0.005,
+                  fontFamily: 'Avenir-Roman',
+                }}>
                 ${item.price}
               </Text>
-            </View>
-            <View
-              style={{
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                height: HEIGHT * 0.125,
-                marginLeft: H_W.width * 0.03,
-              }}>
-              <TouchableOpacity
-                onPress={() => YgRemoveFromCart(item)}
-                style={{
-                  padding: 4,
-                  backgroundColor: colors.lightBackground,
-                  borderRadius: 5,
-                  shadowColor: '#000',
-                  shadowOffset: {
-                    width: 0,
-                    height: 1,
-                  },
-                  shadowOpacity: 0.22,
-                  shadowRadius: 2.2,
-                }}>
-                <FontAwesome name="minus" color={colors.darkGray} />
-              </TouchableOpacity>
               <View
                 style={{
-                  padding: 4,
-                  backgroundColor: colors.lightBackground,
-                  borderRadius: 5,
-                  shadowColor: '#000',
-                  shadowOffset: {
-                    width: 0,
-                    height: 1,
-                  },
-                  shadowOpacity: 0.22,
-                  shadowRadius: 2.2,
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  flexDirection: 'row',
+                  width: H_W.width * 0.25,
                 }}>
-                <Text
+                <TouchableOpacity
+                  onPress={() => YgRemoveFromCart(item)}
                   style={{
-                    fontWeight: 'bold',
-                    color: colors.darkGray,
-                    fontSize: 13,
+                    padding: 4,
+                    backgroundColor: colors.lightBackground,
+                    borderRadius: 5,
+                    shadowColor: '#000',
+                    shadowOffset: {
+                      width: 0,
+                      height: 1,
+                    },
+                    shadowOpacity: 0.22,
+                    shadowRadius: 4.2,
                   }}>
-                  {item.added}
-                </Text>
+                  <FontAwesome name="minus" color={colors.darkGray} />
+                </TouchableOpacity>
+                <View
+                  style={{
+                    padding: 4,
+                    backgroundColor: colors.lightBackground,
+                    borderRadius: 5,
+                    shadowColor: '#000',
+                    shadowOffset: {
+                      width: 0,
+                      height: 1,
+                    },
+                    shadowOpacity: 0.22,
+                    shadowRadius: 4.2,
+                  }}>
+                  <Text
+                    style={{
+                      fontWeight: 'bold',
+                      color: colors.darkGray,
+                      fontSize: 13,
+                    }}>
+                    {item.added}
+                  </Text>
+                </View>
+                <TouchableOpacity
+                  onPress={() => YgAddToCart(item)}
+                  style={{
+                    padding: 4,
+                    backgroundColor: colors.lightBackground,
+                    borderRadius: 5,
+                    shadowColor: '#000',
+                    shadowOffset: {
+                      width: 0,
+                      height: 1,
+                    },
+                    shadowOpacity: 0.22,
+                    shadowRadius: 4.2,
+                  }}>
+                  <FontAwesome name="plus" color={colors.darkGray} />
+                </TouchableOpacity>
               </View>
-              <TouchableOpacity
-                onPress={() => YgAddToCart(item)}
-                style={{
-                  padding: 4,
-                  backgroundColor: colors.lightBackground,
-                  borderRadius: 5,
-                  shadowColor: '#000',
-                  shadowOffset: {
-                    width: 0,
-                    height: 1,
-                  },
-                  shadowOpacity: 0.22,
-                  shadowRadius: 2.2,
-                }}>
-                <FontAwesome name="plus" color={colors.darkGray} />
-              </TouchableOpacity>
             </View>
           </TouchableOpacity>
         )}
@@ -229,41 +211,32 @@ export const Cart = (props) => {
             justifyContent: 'space-between',
             paddingHorizontal: H_W.width * 0.05,
             paddingVertical: HEIGHT * 0.007,
+            marginBottom: HEIGHT * 0.015,
+            borderTopWidth: 1,
           }}>
           <Text
             style={{
               fontSize: 17,
               fontWeight: 'bold',
-              color: colors.lightGrey3,
             }}>
-            {props.YgTotalItems} items
+            Total Price
           </Text>
           <Text style={{fontSize: 18, fontWeight: 'bold'}}>
             ${props.YgTotal}
           </Text>
         </View>
-        <Button
-          onPress={YginfoScreen}
-          disabled={props.YgTotalItems === 0}
-          title="Add To My Cart"
-          buttonStyle={{
-            backgroundColor: colors.primary,
-            borderRadius: 50,
-            paddingVertical: HEIGHT * 0.02,
-          }}
-          icon={
-            <MaterialCommunityIcons
-              name="cart-outline"
-              size={20}
-              color="white"
-              style={{marginRight: H_W.width * 0.01}}
-            />
-          }
-          containerStyle={{
-            width: H_W.width,
-            borderRadius: 50,
-          }}
-        />
+        <View style={{alignItems: 'center'}}>
+          <Button
+            onPress={YginfoScreen}
+            disabled={props.YgTotalItems === 0}
+            title="Checkout"
+            buttonStyle={{
+              backgroundColor: colors.primary,
+              paddingVertical: HEIGHT * 0.015,
+            }}
+            containerStyle={{width: '92%'}}
+          />
+        </View>
       </View>
     </WrapperScreen>
   );

@@ -16,7 +16,7 @@ import {
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import YgSearchBar from '../YgFrequentUsage/YgSearchBar';
 import YgHeader from '../YgFrequentUsage/YgHeader';
-import AntDesign from 'react-native-vector-icons/AntDesign';
+import Fontisto from 'react-native-vector-icons/Fontisto';
 import {YgVerticalTile} from './YgHome';
 
 function Search(props) {
@@ -26,8 +26,8 @@ function Search(props) {
   const HEIGHT = H_W.height - (insets.bottom + insets.top);
 
   const RenderSearchedResult = () => {
-    var SearchedItems = Data.Product.filter((item) =>
-      item.product.toLowerCase().includes(searchText.toLowerCase()),
+    var SearchedItems = Data.product.filter((item) =>
+      item.productname.toLowerCase().includes(searchText.toLowerCase()),
     );
     return SearchedItems.length === 0 ? (
       <Text style={{fontWeight: 'bold', textAlign: 'center'}}>
@@ -71,39 +71,40 @@ function Search(props) {
 
   const YgchangeSearchText = (t) => setSearchText(t);
   return (
-    <WrapperScreen style={{backgroundColor: colors.lightBackground}}>
+    <WrapperScreen
+      statusColor={`rgba(${colors.rgb_Primary},0.2)`}
+      style={{backgroundColor: 'white'}}>
       <View
         style={{
           width: 100,
           height: 100,
-          borderRadius: 50,
-          backgroundColor: 'rgba(188,188,188,0.15)',
+          borderRadius: 30,
+          backgroundColor: `rgba(${colors.rgb_Primary},0.07)`,
           transform: [{scaleX: H_W.width * 0.016}, {scaleY: H_W.width * 0.017}],
           position: 'absolute',
           bottom: 0,
         }}
       />
-      <View style={styles.YgSearch1}>
+      <View style={{backgroundColor: `rgba(${colors.rgb_Primary},0.2)`}}>
         <YgHeader
-          leftIcon={AntDesign}
-          leftIconName="arrowleft"
+          leftIcon={Fontisto}
+          leftIconName="arrow-left-l"
           leftIconColor={colors.primary}
           leftIconAction={YgGoBack}
           Title={<Text style={styles.YgSearch2}>Search</Text>}
         />
-        <View style={styles.YgSearch3}>
-          <View
-            style={{
-              marginTop: HEIGHT * 0.01,
-              marginBottom: -HEIGHT * 0.02,
-              ...styles.YgSearch4,
-            }}>
-            <YgSearchBar changeSearchText={YgchangeSearchText} />
-          </View>
+      </View>
+      <View style={styles.YgSearch3}>
+        <View
+          style={{
+            marginTop: HEIGHT * 0.01,
+            ...styles.YgSearch4,
+          }}>
+          <YgSearchBar changeSearchText={YgchangeSearchText} />
         </View>
       </View>
-      <View style={{marginTop: HEIGHT * 0.06, flex: 1}}>
-        {searchText !== '' ? RenderSearchedResult() : CardRender(Data.Product)}
+      <View style={{marginTop: HEIGHT * 0.01, flex: 1}}>
+        {searchText !== '' ? RenderSearchedResult() : CardRender(Data.product)}
       </View>
     </WrapperScreen>
   );
@@ -120,10 +121,6 @@ export default connect(mapStateToProps, {
 })(Search);
 
 const styles = StyleSheet.create({
-  YgSearch1: {
-    borderBottomLeftRadius: 30,
-    borderBottomRightRadius: 30,
-  },
   YgSearch2: {
     fontWeight: 'bold',
     fontSize: 20,

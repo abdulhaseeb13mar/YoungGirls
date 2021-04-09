@@ -20,4 +20,5 @@ export const textFont = {
   FuturaMedium: 'Futura-Medium',
   GillSans: 'GillSans',
   TimesNewRoman: 'TimesNewRomanPS-BoldMT',
+  Avenir: 'Avenir-Roman',
 };

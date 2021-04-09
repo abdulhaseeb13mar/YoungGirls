@@ -7,13 +7,13 @@ import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {H_W} from '../YgFrequentUsage/YgResponsive';
 import {colors} from '../YgFrequentUsage/YgColor';
 import {Button, Overlay} from 'react-native-elements';
-import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {isFormValid} from '../YgFrequentUsage/Ygvalidation';
 import NavPointer from '../YgFrequentUsage/YgRefNavigation';
 import {YgUserAction, YgresetCart} from '../YgStateManagement/YgActions';
 import Toast from 'react-native-root-toast';
 import UseHeader from '../YgFrequentUsage/YgHeader';
+import Fontisto from 'react-native-vector-icons/Fontisto';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 const ConfirmOrder = (props) => {
@@ -35,7 +35,11 @@ const ConfirmOrder = (props) => {
     if (!formValidResponse.status) {
       errorMsgHandler(formValidResponse.errCategory, formValidResponse.errMsg);
     } else {
-      CallApi();
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+        MoveToConfirmOrder();
+      }, 2000);
       props.YgUserAction({
         email: email,
         firstName: firstName,
@@ -105,10 +109,10 @@ const ConfirmOrder = (props) => {
     }
   };
 
-  // const MoveToConfirmOrder = () => {
-  //   props.YgresetCart();
-  //   NavPointer.Push('YgConfirmOrder');
-  // };
+  const MoveToConfirmOrder = () => {
+    props.YgresetCart();
+    NavPointer.Push('YgConfirmOrder');
+  };
 
   const closeModal = () => {
     setShowModal(false);
@@ -123,15 +127,61 @@ const ConfirmOrder = (props) => {
   const changeFirstName = (t) => setFirstName(t);
 
   return (
-    <WrapperScreen style={{backgroundColor: 'white'}}>
+    <WrapperScreen
+      style={{backgroundColor: 'white'}}
+      statusColor={`rgba(${colors.rgb_Primary},0.2)`}>
+      <View
+        style={{
+          width: 100,
+          height: 100,
+          borderRadius: 30,
+          backgroundColor: `rgba(${colors.rgb_Primary},0.05)`,
+          transform: [{scaleX: H_W.width * 0.016}, {scaleY: H_W.width * 0.017}],
+          position: 'absolute',
+          bottom: 0,
+          right: 0,
+        }}
+      />
       <KeyboardAwareScrollView style={styles.container} bounces={false}>
-        <UseHeader
-          leftIcon={AntDesign}
-          leftIconName="arrowleft"
-          leftIconColor={colors.primary}
-          leftIconAction={YgGoBack}
-          Title={<Text style={styles.YgContact2}>Information</Text>}
-        />
+        <View style={{backgroundColor: `rgba(${colors.rgb_Primary},0.2)`}}>
+          <UseHeader
+            leftIcon={Fontisto}
+            leftIconName="arrow-left-l"
+            leftIconColor={colors.primary}
+            leftIconAction={YgGoBack}
+            Title={<Text style={styles.YgContact2}>Checkout</Text>}
+          />
+        </View>
+        <View
+          style={{
+            paddingHorizontal: H_W.width * 0.03,
+            paddingTop: HEIGHT * 0.03,
+            marginBottom: HEIGHT * 0.04,
+          }}>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+            }}>
+            <Text style={{fontSize: 17, fontWeight: 'bold'}}>Total Price</Text>
+            <Text style={{fontSize: 17, fontWeight: 'bold'}}>
+              $ {props.total}
+            </Text>
+          </View>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              marginTop: HEIGHT * 0.01,
+              paddingBottom: HEIGHT * 0.03,
+              borderBottomWidth: 1,
+            }}>
+            <Text>Payment Method</Text>
+            <Text>Cash on Delivery</Text>
+          </View>
+        </View>
         <View style={styles.YgPersonalInfoWrapper}>
           <View style={styles.YgSinglePersonalInfoWrapper}>
             <Text
@@ -236,9 +286,8 @@ const ConfirmOrder = (props) => {
             disabled={props.YgTotalItems === 0}
             title="CONFIRM ORDER"
             titleStyle={{fontWeight: 'bold', fontSize: 20}}
-            containerStyle={{width: '100%', borderRadius: 50}}
+            containerStyle={{width: '95%'}}
             buttonStyle={{
-              borderRadius: 50,
               paddingVertical: HEIGHT * 0.02,
               backgroundColor: colors.primary,
               shadowColor: colors.primary,
@@ -302,11 +351,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    backgroundColor: colors.lightGrey4,
     paddingHorizontal: H_W.width * 0.02,
     borderRadius: 1,
-    borderColor: colors.primary,
-    borderWidth: 1.5,
+    borderColor: colors.lightGrey3,
+    borderWidth: 1,
   },
   YgPersonalInfoHeadingName: {
     fontSize: 13,

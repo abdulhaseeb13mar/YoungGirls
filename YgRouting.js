@@ -6,12 +6,12 @@ import {
 import {NavigationContainer} from '@react-navigation/native';
 import Navigator from './YgFrequentUsage/YgRefNavigation';
 import YgHome from './YgMainScreens/YgHome';
-// import YgSP from './YgMainScreens/YgSP';
-// import YgCart from './YgMainScreens/YgCart';
+import YgSP from './YgMainScreens/YgSP';
+import YgCart from './YgMainScreens/YgCart';
 // import YgFav from './YgMainScreens/YgFav';
-// import YgContact from './YgMainScreens/YgContact';
-// import YgConfirmOrder from './YgSrc/YgConfirmOrder';
-// import YgSearch from './YgMainScreens/YgSearch';
+import YgContact from './YgMainScreens/YgContact';
+import YgConfirmOrder from './YgMainScreens/YgConfirmOrder';
+import YgSearch from './YgMainScreens/YgSearch';
 const Stack = createStackNavigator();
 
 function Routes(props) {
@@ -27,12 +27,12 @@ function Routes(props) {
           cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
         }}>
         <Stack.Screen name="YgHome" component={YgHome} />
-        {/* <Stack.Screen name="YgSP" component={YgSP} /> */}
+        <Stack.Screen name="YgSP" component={YgSP} />
         {/* <Stack.Screen name="YgFav" component={YgFav} /> */}
-        {/* <Stack.Screen name="YgCart" component={YgCart} /> */}
-        {/* <Stack.Screen name="YgContact" component={YgContact} /> */}
-        {/* <Stack.Screen name="YgConfirmOrder" component={YgConfirmOrder} /> */}
-        {/* <Stack.Screen name="YgSearch" component={YgSearch} /> */}
+        <Stack.Screen name="YgCart" component={YgCart} />
+        <Stack.Screen name="YgContact" component={YgContact} />
+        <Stack.Screen name="YgConfirmOrder" component={YgConfirmOrder} />
+        <Stack.Screen name="YgSearch" component={YgSearch} />
       </Stack.Navigator>
     </NavigationContainer>
   );
